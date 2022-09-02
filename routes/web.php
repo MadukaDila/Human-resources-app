@@ -18,3 +18,7 @@ use App\Http\Controllers\attendenceController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['cors'])->group(function () {
+    Route::get('/Challenge_04', [CustomersController::class, 'groupByOwnersService']);
+});
