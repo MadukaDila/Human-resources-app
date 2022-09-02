@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::middleware(['cors'])->group(function () {
     Route::get('/Challenge_04', [CustomersController::class, 'groupByOwnersService']);
 });
+
+Route::middleware(['cors'])->group(function () {
+    Route::get('/Challenge_02', [CustomersController::class, 'challenge_02']);
+});

@@ -98,4 +98,27 @@ class CustomersController extends Controller
         return response()->json($original_array);
 
     }
+
+    public function challenge_02(Request $request){
+        $number=5;
+
+        $number--;
+
+        $array = array();
+
+        for ($x = 0; $x < $number; $x++) {
+            $array[] = $x;
+        }
+        $number++;
+
+        for ($x = 0; $x < $number; $x++) {
+            $newarray[]=rand($array[0],end($array));
+        }
+
+        $val=array_unique( array_diff_assoc( $newarray, array_unique( $newarray ) ) );
+        $val = array_values($val);
+
+        return response()->json(array('array'=>$newarray,'occur more than once in the given array'=>$val));
+
+    }
 }
